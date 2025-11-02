@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Aura</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <style>
+        :root {
+            --cream-light: #FFE8C0;
+            --cream-lighter: #FFF9EA;
+            --terracotta: #E2916F;
+            --peach: #FFB99B;
+            --maroon: #5E0202;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        .navbar {
+            background-color: white;
+            padding: 1.2rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--maroon) !important;
+        }
+
+        .navbar-nav .nav-link {
+            color: #555;
+            margin: 0 1rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: var(--maroon);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, var(--cream-lighter) 0%, var(--cream-light) 100%);
+            padding: 100px 0;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--maroon);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .btn-discover {
+            background-color: var(--maroon);
+            color: white;
+            padding: 12px 35px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(94, 2, 2, 0.2);
+        }
+
+        .btn-discover:hover {
+            background-color: #7a0303;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(94, 2, 2, 0.3);
+        }
+
+        .hero-image {
+            text-align: center;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* Section Titles */
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--maroon);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 4rem;
+            font-size: 1.1rem;
+        }
+
+        /* Vision Section */
+        .vision-section {
+            padding: 80px 0;
+            background-color: #f8f9fa;
+        }
+
+        .vision-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2.5rem;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            height: 100%;
+            margin-bottom: 2rem;
+        }
+
+        .vision-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+        }
+
+        .vision-icon {
+            font-size: 3.5rem;
+            color: var(--terracotta);
+            margin-bottom: 1.5rem;
+        }
+
+        .vision-card h4 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--maroon);
+            margin-bottom: 1rem;
+        }
+
+        .vision-card p {
+            color: #666;
+            line-height: 1.7;
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 80px 0;
+            background-color: white;
+        }
+
+        .about-card {
+            background: linear-gradient(135deg, var(--cream-lighter) 0%, var(--cream-light) 100%);
+            border-radius: 15px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .about-card h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--maroon);
+            margin-bottom: 1.5rem;
+        }
+
+        .about-card p {
+            color: #555;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        .about-image-placeholder {
+            background: linear-gradient(135deg, #ddd 0%, #ccc 100%);
+            border-radius: 15px;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #888;
+            font-size: 1.2rem;
+        }
+
+        /* Features Carousel */
+        .features-section {
+            padding: 80px 0;
+            background-color: #f8f9fa;
+        }
+
+        .carousel-item {
+            padding: 2rem 0;
+        }
+
+        .feature-slide {
+            background: white;
+            border-radius: 15px;
+            padding: 3rem;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            min-height: 350px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .feature-slide h4 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--maroon);
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-slide p {
+            color: #666;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            background-color: var(--maroon);
+            border-radius: 50%;
+            padding: 20px;
+        }
+
+        .carousel-indicators button {
+            background-color: var(--terracotta);
+        }
+
+        /* Technology Stack */
+        .tech-section {
+            padding: 80px 0;
+            background-color: white;
+        }
+
+        .tech-badge {
+            background-color: var(--cream-light);
+            color: var(--maroon);
+            padding: 10px 20px;
+            border-radius: 25px;
+            margin: 5px;
+            display: inline-block;
+            font-weight: 600;
+            border: 2px solid var(--peach);
+        }
+
+        .tech-description {
+            color: #666;
+            margin: 2rem 0;
+            line-height: 1.8;
+        }
+
+        /* Team Section */
+        .team-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #e0e0e0 0%, #c8c8c8 100%);
+        }
+
+        .team-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            margin-bottom: 2rem;
+        }
+
+        .team-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .team-image {
+            width: 150px;
+            height: 150px;
+            background: linear-gradient(135deg, #ddd 0%, #bbb 100%);
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #888;
+        }
+
+        .team-card h5 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--maroon);
+            margin-bottom: 0.5rem;
+        }
+
+        .team-card p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 80px 0;
+            background-color: white;
+        }
+
+        .contact-card {
+            background: linear-gradient(135deg, var(--cream-lighter) 0%, var(--cream-light) 100%);
+            border-radius: 15px;
+            padding: 2.5rem;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+            height: 100%;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .contact-icon {
+            font-size: 3rem;
+            color: var(--terracotta);
+            margin-bottom: 1rem;
+        }
+
+        .contact-card h5 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--maroon);
+            margin-bottom: 1rem;
+        }
+
+        .contact-card p {
+            color: #666;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--maroon);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .hero-section {
+                padding: 60px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Project Aura</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section" style="margin-top: 70px;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 hero-content">
+                    <h1>Meet Aura</h1>
+                    <p>Aura is an companion for users, friends, and professionals. A personalized companion, designed to understand your unique needs and provide meaningful support in every interaction.</p>
+                    <button class="btn-discover">Discover More</button>
+                </div>
+                <div class="col-lg-6 hero-image">
+                    <svg width="300" height="300" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Bunny Character -->
+                        <ellipse cx="150" cy="200" rx="80" ry="90" fill="#FFE8C0"/>
+                        
+                        <!-- Ears -->
+                        <ellipse cx="110" cy="100" rx="25" ry="60" fill="#FFE8C0" transform="rotate(-20 110 100)"/>
+                        <ellipse cx="190" cy="100" rx="25" ry="60" fill="#FFE8C0" transform="rotate(20 190 100)"/>
+                        <ellipse cx="110" cy="110" rx="15" ry="40" fill="#FFB99B" transform="rotate(-20 110 110)"/>
+                        <ellipse cx="190" cy="110" rx="15" ry="40" fill="#FFB99B" transform="rotate(20 190 110)"/>
+                        
+                        <!-- Head -->
+                        <circle cx="150" cy="150" r="70" fill="#FFE8C0"/>
+                        
+                        <!-- Eyes -->
+                        <circle cx="130" cy="145" r="8" fill="#333"/>
+                        <circle cx="170" cy="145" r="8" fill="#333"/>
+                        <circle cx="132" cy="143" r="3" fill="white"/>
+                        <circle cx="172" cy="143" r="3" fill="white"/>
+                        
+                        <!-- Nose -->
+                        <ellipse cx="150" cy="160" rx="6" ry="8" fill="#E2916F"/>
+                        
+                        <!-- Mouth -->
+                        <path d="M 140 170 Q 150 175 160 170" stroke="#333" stroke-width="2" fill="none"/>
+                        
+                        <!-- Bow -->
+                        <rect x="135" y="210" width="30" height="15" fill="#E2916F" rx="3"/>
+                        <polygon points="135,217 120,207 120,227" fill="#E2916F"/>
+                        <polygon points="165,217 180,207 180,227" fill="#E2916F"/>
+                        
+                        <!-- Arms -->
+                        <ellipse cx="90" cy="220" rx="20" ry="35" fill="#FFE8C0"/>
+                        <ellipse cx="210" cy="220" rx="20" ry="35" fill="#FFE8C0"/>
+                        
+                        <!-- Feet -->
+                        <ellipse cx="130" cy="280" rx="25" ry="15" fill="#FFB99B"/>
+                        <ellipse cx="170" cy="280" rx="25" ry="15" fill="#FFB99B"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision Section -->
+    <section id="vision" class="vision-section">
+        <div class="container">
+            <h2 class="section-title">Our Vision</h2>
+            <p class="section-subtitle">Project Aura addresses critical challenges in mental health, education, and social connection for modern, innovative technological solutions.</p>
+            
+            <div class="row">
+                <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="vision-card">
+                        <div class="vision-icon">
+                            <i class="bi bi-brain"></i>
+                        </div>
+                        <h4>Mental Wellness</h4>
+                        <p>Providing continuous emotional support through engaging, inclusive, social interactions tailored to diverse needs.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="vision-card">
+                        <div class="vision-icon">
+                            <i class="bi bi-journal-bookmark"></i>
+                        </div>
+                        <h4>Smart Learning</h4>
+                        <p>Personalizing access to education and making learning engaging while supporting students in overcoming barriers.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="vision-card">
+                        <div class="vision-icon">
+                            <i class="bi bi-chat-dots"></i>
+                        </div>
+                        <h4>Meaningful Connection</h4>
+                        <p>Facilitating authentic conversation that bridge gaps, helping users overcome loneliness and build meaningful interactions.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="vision-card">
+                        <div class="vision-icon">
+                            <i class="bi bi-bullseye"></i>
+                        </div>
+                        <h4>Focus Enhancement</h4>
+                        <p>Addressing distraction and low engagement through gamification, personalized feedback and effective goal setting strategies.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2 class="section-title">About Project Aura</h2>
+            
+            <div class="row align-items-center mb-5">
+                <div class="col-lg-6 order-lg-1 order-2">
+                    <div class="about-card">
+                        <h3>What is Aura?</h3>
+                        <p>Aura is a cute, gamified, AI-powered AI companion powered by Anthropic's AI. It speaks from a friendly, therapeutic, and empathetic spirit. Aura is a supportive AI companion that learns your preferences through guided conversations. With a personality that adapts, Aura is perfect for engaging and meaningful interactions that grow deeper with every use.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 order-lg-2 order-1 mb-4">
+                    <div class="about-image-placeholder">
+                        <span>Image Placeholder</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row align-items-center mb-5">
+                <div class="col-lg-6 mb-4">
+                    <div class="about-image-placeholder">
+                        <span>Image Placeholder</span>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="about-card">
+                        <h3>How It Began</h3>
+                        <p>Health Aura was born from recognizing the growing challenges of mental health, educational support, and emotional isolation. We envisioned innovative technology that supports personal growth, alleviates loneliness, and improves emotional well-being tailored to user needs.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row align-items-center">
+                <div class="col-lg-6 order-lg-1 order-2">
+                    <div class="about-card">
+                        <h3>Why Choose Aura?</h3>
+                        <p>Unlike conventional platforms or solutions, Aura is our gamified conversational environment—accessible ANYTIME 24/7 and offering affordability. Aura goes beyond data tracking to blend personalized support, meaningful social connections, and an innovative toolkit that empowers students, promotes mindfulness, and supports personal development.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 order-lg-2 order-1 mb-4">
+                    <div class="about-image-placeholder">
+                        <span>Image Placeholder</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Carousel Section -->
+    <section id="features" class="features-section">
+        <div class="container">
+            <h2 class="section-title">Why Choose Aura?</h2>
+            <p class="section-subtitle">Discover the powerful features that make Aura unique</p>
+
+            <div id="featuresCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#featuresCarousel" data-bs-slide-to="0" class="active"></button>
+                    <button type="button" data-bs-target="#featuresCarousel" data-bs-slide-to="1"></button>
+                    <button type="button" data-bs-target="#featuresCarousel" data-bs-slide-to="2"></button>
+                </div>
+                
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8">
+                                    <div class="feature-slide">
+                                        <h4>Feature 01: Personalized AI Companion</h4>
+                                        <p>Aura learns from your interactions and adapts to your unique personality and needs. Through advanced AI technology, it provides tailored emotional support, remembers your preferences, and grows with you over time to create truly meaningful conversations.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="carousel-item">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8">
+                                    <div class="feature-slide">
+                                        <h4>Feature 02: Gamified Engagement</h4>
+                                        <p>Stay motivated with Aura's gamification system featuring achievements, progress tracking, and interactive challenges. Earn rewards as you reach your mental wellness goals, making self-improvement an enjoyable and engaging journey.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="carousel-item">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8">
+                                    <div class="feature-slide">
+                                        <h4>Feature 03: 24/7 Support & Accessibility</h4>
+                                        <p>Aura is always there when you need it most. Available around the clock, Aura provides immediate emotional support, educational assistance, and companionship whenever you need someone to talk to, regardless of time or location.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="carousel-control-prev" type="button" data-bs-target="#featuresCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#featuresCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Stack Section -->
+    <section id="technology" class="tech-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <h2 class="section-title">Technology Stack</h2>
+                    <p class="tech-description text-center">
+                        Project Aura is built with cutting-edge technologies that ensure a seamless, secure, and intelligent user experience. Our robust technical foundation combines state-of-the-art AI capabilities with modern web technologies to deliver exceptional performance and reliability.
+                    </p>
+                    
+                    <div class="text-center mb-4">
+                        <span class="tech-badge">Python</span>
+                        <span class="tech-badge">React.js</span>
+                        <span class="tech-badge">Claude API</span>
+                        <span class="tech-badge">AWS (EC2)</span>
+                        <span class="tech-badge">SQL Lite</span>
+                        <span class="tech-badge">Docker/Docker E</span>
+                    </div>
+
+                    <div class="about-image-placeholder" style="margin-top: 3rem;">
+                        <span>Architecture Diagram</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="team-section">
+        <div class="container">
+            <h2 class="section-title">Meet Our Team</h2>
+            <p class="section-subtitle">The brilliant minds behind Project Aura</p>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="team-card">
+                        <div class="team-image">
+                            <i class="bi bi-person-circle" style="font-size: 4rem;"></i>
+                        </div>
+                        <h5>Team Member 01</h5>
+                        <p>Role | Brief Bio</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="team-card">
+                        <div class="team-image">
+                            <i class="bi bi-person-circle" style="font-size: 4rem;"></i>
+                        </div>
+                        <h5>Team Member 02</h5>
+                        <p>Role | Brief Bio</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="team-card">
+                        <div class="team-image">
+                            <i class="bi bi-person-circle" style="font-size: 4rem;"></i>
+                        </div>
+                        <h5>Team Member 03</h5>
+                        <p>Role | Brief Bio</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row justify-content-center mt-4">
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="team-card">
+                        <div class="team-image">
+                            <i class="bi bi-person-circle" style="font-size: 4rem;"></i>
+                        </div>
+                        <h5>Team Member 04</h5>
+                        <p>Role | Brief Bio</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="team-card">
+                        <div class="team-image">
+                            <i class="bi bi-person-circle" style="font-size: 4rem;"></i>
+                        </div>
+                        <h5>Team Member 05</h5>
+                        <p>Role | Brief Bio</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2 class="section-title">Get in Touch</h2>
+            <p class="section-subtitle">Interested in Project Aura? We'd love to hear from you</p>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="bi bi-envelope"></i>
+                        </div>
+                        <h5>Email</h5>
+                        <p>contact@projectaura.com</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="bi bi-geo-alt"></i>
+                        </div>
+                        <h5>Location</h5>
+                        <p>Your City, Country</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="bi bi-share"></i>
+                        </div>
+                        <h5>Social</h5>
+                        <p>Follow us online</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Project Aura. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offset = 80;
+                    const targetPosition = target.offsetTop - offset;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Active nav link on scroll
+        window.addEventListener('scroll', () => {
+            let current = '';
+            const sections = document.querySelectorAll('section');
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 100)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Navbar background on scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.boxShadow = '0 2px 15px rgba(0,0,0,0.1)';
+            } else {
+                navbar.style.boxShadow = '0 2px 10px rgba(0,0,0,0.05)';
+            }
+        });
+    </script>
+</body>
+</html>
