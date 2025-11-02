@@ -46,30 +46,24 @@ document.querySelectorAll('.vision-card, .team-member, .contact-card, .about-ite
 });
 
 
-
-
 // Card data
 const cardData = [
     {
-        title: "Feature 01",
-        description: "Personalized AI Companion that learns from your interactions and adapts to your unique needs"
+        title: "AI-Powered Focus Tracking",
+        description: "Stay in the zone. Hazel monitors your eye movement and gently alerts you with light and sound if you get distracted, keeping you on task."
     },
     {
-        title: "Feature 02",
-        description: "Gamified Engagement with achievements, progress tracking, and interactive challenges"
+        title: "Smart Revision Sessions",
+        description: "Upload your study materials and let Hazel instantly generate practice questions, interactive Q&A sessions, and concise summaries to help you revise smarter."
     },
     {
-        title: "Feature 03",
-        description: "24/7 Support & Accessibility available whenever you need emotional support or guidance"
+        title: "Interactive Entertainment",
+        description: "Challenge your assistant to a 'Music Maze' or 'Guess the Word.' Co-create a unique story, with smart RGB LEDs providing instant feedback."
     },
     {
-        title: "Feature 04",
-        description: "Advanced Learning that helps you grow and develop through personalized content"
+        title: "Ambient Task Management",
+        description: "Set reminders for calls and assignments while Hazel's adaptive lighting creates the perfect mood, automatically syncing with the weather and time of day."
     },
-    {
-        title: "Feature 05",
-        description: "Community Connection that bridges gaps and helps you build meaningful relationships"
-    }
 ];
 
 let currentIndex = 0;
