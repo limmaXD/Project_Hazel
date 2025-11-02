@@ -161,7 +161,7 @@ document.addEventListener('keydown', (e) => {
 // Auto-play (optional)
 let autoplayInterval;
 function startAutoplay() {
-    autoplayInterval = setInterval(nextSlide, 4000);
+    autoplayInterval = setInterval(nextSlide, 3000);
 }
 
 function stopAutoplay() {
