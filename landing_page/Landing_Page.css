@@ -1,15 +1,12 @@
 :root {
-    --color-primary: #FFE8C0;
-    --color-secondary: #FFF9EA;
-    --color-accent1: #E2916F;
-    --color-accent2: #FFB99B;
-    --color-dark: #5E0202;
-
-    --cream-light: #FFE8C0;
-    --cream-lighter: #FFF9EA;
-    --terracotta: #E2916F;
-    --peach: #FFB99B;
-    --maroon: #5E0202;
+    --color-primary: #0a1d37;
+    --color-secondary: #FFFFFF;
+    --color-accent1: #FEC89A;
+    --color-accent2: #FEC89A;
+    --color-dark: #0a1d37;
+    --color-light-blue: #2c4a6b;
+    --color-dot: #000000;
+    --color-lightdot: #383838;
 }
 
 * {
@@ -31,12 +28,9 @@ body {
 }
 
 .navbar-logo {
-    width: 60px;
+    width: 120px;
     height: 60px;
-    border-radius: 50%;
-    object-fit: cover;
     margin-right: 10px;
-    border: 2px solid var(--peach);
     margin-top: -15px;
     margin-bottom: -15px;
 }
@@ -129,7 +123,6 @@ body {
     }
 }
 
-/* Vision Section */
 .vision-section {
     background-color: var(--color-primary);
     padding: 80px 0;
@@ -139,13 +132,13 @@ body {
     font-size: 2.5rem;
     font-weight: 700;
     text-align: center;
-    color: var(--color-dark);
+    color: var(--color-secondary);
     margin-bottom: 3rem;
 }
 
 .section-subtitle {
     text-align: center;
-    color: #666;
+    color: var(--color-secondary);
     max-width: 1000px;
     margin: 0 auto 3rem;
     font-size: 1.1rem;
@@ -164,7 +157,7 @@ body {
     padding: 2.5rem;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
     transition: transform 0.3s, box-shadow 0.3s;
-    border: 3px solid var(--color-accent2);
+    border: 3px solid var(--color-accent1);
 }
 
 .vision-card:hover {
@@ -196,15 +189,23 @@ body {
     background-color: white;
 }
 
+.about-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    color: var(--color-dark);
+    margin-bottom: 4rem;
+}
+
 .about-item {
     margin-bottom: 4rem;
 }
 
 .about-content {
-    background-color: var(--color-primary);
+    background-color: var(--color-accent1);
     padding: 2.5rem;
     border-radius: 20px;
-    border: 3px solid var(--color-accent1);
+    border: 3px solid var(--color-dark);
 }
 
 .about-content h3 {
@@ -225,21 +226,30 @@ body {
 .slider-section {
     padding: 10px 0;
     overflow: hidden;
+    background-color: var(--color-accent2);
+}
+
+.s-container {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
 }
 
 .feature-section-title {
     font-size: 2.5rem;
     font-weight: 700;
-    color: var(--maroon);
+    color: var(--color-dark);
     margin-bottom: 3rem;
     text-align: center;
 }
 
 .feature-section-subtitle {
     text-align: center;
-    color: #666;
+    color: var(--color-light-blue);
     margin-bottom: 4rem;
     font-size: 1.1rem;
+    font-weight: 500;
+    margin-left: 10%;
+    margin-right: 10%;
 }
 
 .slider-container {
@@ -266,6 +276,9 @@ body {
     height: 380px;
     background: white;
     border-radius: 30px;
+    border-style: solid;
+    border-color: var(--color-light-blue);
+    border-width: 1%;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
     display: flex;
     align-items: center;
@@ -282,13 +295,13 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, rgba(255, 232, 192, 0.3) 0%, rgba(255, 185, 155, 0.3) 100%);
+    background: linear-gradient(135deg, var(--color-light-blue) 0%, var(--color-light-blue) 10%);
     opacity: 0;
     transition: opacity 0.3s;
 }
 
 .slider-card:hover::before {
-    opacity: 1;
+    opacity: 50%;
 }
 
 .card-content {
@@ -404,20 +417,20 @@ body {
     width: 12px;
     height: 12px;
     border-radius: 50%;
-    background: #ddd;
+    background: var(--color-lightdot);
     cursor: pointer;
     transition: all 0.3s;
 }
 
 .dot.active {
-    background: var(--maroon);
+    background: var(--color-dot);
     width: 30px;
     border-radius: 6px;
 }
 
 /* Responsive */
 @media (max-width: 992px) {
-    .nav-link{
+    .nav-link {
         margin-top: 20px;
     }
 
@@ -446,10 +459,10 @@ body {
 
 @media (max-width: 768px) {
 
-    .nav-link{
+    .nav-link {
         margin-top: 20px;
     }
-    
+
     .slider-container {
         height: 400px;
     }
@@ -503,7 +516,7 @@ body {
 }
 
 .tech-badge {
-    background-color: var(--color-primary);
+    background-color: var(--color-accent1);
     color: var(--color-dark);
     padding: 10px 25px;
     border-radius: 50px;
@@ -513,7 +526,7 @@ body {
 }
 
 .tech-badge:hover {
-    background-color: var(--color-accent1);
+    background-color: var(--color-dark);
     color: white;
     transform: scale(1.05);
 }
@@ -528,13 +541,13 @@ body {
 
 /* Team Section */
 .team-section {
-    background-color: var(--color-accent2);
+    background-color: var(--color-light-blue);
     padding: 80px 0;
 }
 
 .team-subtitle {
     text-align: center;
-    color: #666;
+    color: #d0d0d0;
     margin-bottom: 3rem;
     font-style: italic;
 }
@@ -553,7 +566,7 @@ body {
     text-align: center;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
     transition: transform 0.3s;
-    border: 3px solid var(--color-primary);
+    border: 3px solid var(--color-accent1);
 }
 
 .team-member:hover {
@@ -591,7 +604,30 @@ body {
 /* Contact Section */
 .contact-section {
     padding: 80px 0;
-    background-color: var(--color-primary);
+    background-color: var(--color-secondary);
+}
+
+.contact-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    color: var(--color-dark);
+    margin-bottom: 2rem;
+}
+
+.contact-subtitle {
+    font-weight: 500;
+    text-align: center;
+    color: var(--color-light-blue);
+    max-width: 1000px;
+    margin: 0 auto 3rem;
+    font-size: 1.1rem;
+}
+
+
+
+.contact-subtitle {
+    color: var(--color-light-blue);
 }
 
 .contact-cards {
@@ -602,13 +638,13 @@ body {
 }
 
 .contact-card {
-    background-color: var(--color-secondary);
+    background-color: var(--color-light-blue);
     border-radius: 20px;
     padding: 2.5rem;
     text-align: center;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s;
-    border: 3px solid var(--color-accent1);
+    border: 3px solid var(--color-dark);
 }
 
 .contact-card:hover {
@@ -617,19 +653,21 @@ body {
 
 .contact-icon {
     font-size: 2.5rem;
-    color: var(--color-accent1);
+    color: var(--color-secondary);
     margin-bottom: 1.5rem;
+    transition: transform 0.3s, color 0.3s;
+
 }
 
 .contact-card h4 {
     font-size: 1.5rem;
     font-weight: 700;
-    color: var(--color-dark);
+    color: var(--color-secondary);
     margin-bottom: 1rem;
 }
 
 .contact-card p {
-    color: #666;
+    color: #e6e6e6;
 }
 
 /* Footer */
@@ -665,7 +703,7 @@ body {
         font-size: 2rem;
     }
 
-    .hero-image{
+    .hero-image {
         margin-top: 3rem;
     }
 
@@ -681,10 +719,10 @@ body {
 /* added Animations */
 
 .about-content {
-    background-color: var(--color-primary);
+    background-color: var(--color-accent1);
     padding: 2.5rem;
     border-radius: 20px;
-    border: 3px solid var(--color-accent1);
+    border: 3px solid var(--color-dark);
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
@@ -704,14 +742,6 @@ body {
 .vision-card:hover .vision-icon {
     transform: scale(1.08) rotate(3deg);
     color: var(--color-dark);
-}
-
-.contact-icon {
-    font-size: 2.5rem;
-    color: var(--color-accent1);
-    margin-bottom: 1.5rem;
-    transition: transform 0.3s, color 0.3s;
-
 }
 
 .contact-card:hover .contact-icon {
@@ -745,23 +775,6 @@ body {
 
 .navbar-brand:hover {
     transform: scale(1.05);
-}
-
-.navbar-logo {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-right: 10px;
-    border: 2px solid var(--peach);
-    margin-top: -15px;
-    margin-bottom: -15px;
-    transition: border-color 0.3s, transform 0.3s;
-}
-
-.navbar-logo:hover {
-    border-color: var(--color-accent1);
-    transform: rotate(5deg);
 }
 
 
