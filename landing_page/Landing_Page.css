@@ -1,12 +1,10 @@
 :root {
-    --color-primary: #0a1d37;
+    --color-primary: #141414;
     --color-secondary: #FFFFFF;
-    --color-accent1: #FEC89A;
-    --color-accent2: #FEC89A;
-    --color-dark: #0a1d37;
-    --color-light-blue: #2c4a6b;
-    --color-dot: #000000;
-    --color-lightdot: #383838;
+    --color-secondary-dark: #d1d1d1;
+    --color-accent1: #0FFFC7;
+    --color-light: #212121;
+
 }
 
 * {
@@ -22,14 +20,14 @@ body {
 
 /* Navigation */
 .navbar {
-    background-color: var(--color-secondary);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    background-color: var(--color-primary);
+    box-shadow: 0 2px 10px var(--color-light);
     padding: 1rem 0;
 }
 
 .navbar-logo {
-    width: 120px;
-    height: 60px;
+    width: 150px;
+    height: 50px;
     margin-right: 10px;
     margin-top: -15px;
     margin-bottom: -15px;
@@ -41,11 +39,11 @@ body {
     align-items: center;
     font-weight: 700;
     font-size: 1.5rem;
-    color: var(--color-dark) !important;
+    color: var(--color-accent1) !important;
 }
 
 .nav-link {
-    color: #333 !important;
+    color: var(--color-secondary) !important;
     font-weight: 500;
     margin: 0 1rem;
     transition: color 0.3s;
@@ -57,7 +55,7 @@ body {
 
 /* Hero Section */
 .hero-section {
-    background-color: var(--color-secondary);
+    background-color: var(--color-light);
     padding: 100px 0;
     min-height: 600px;
     display: flex;
@@ -65,26 +63,27 @@ body {
 }
 
 .hero-content h1 {
-    font-size: 3.5rem;
+    font-size: 5rem;
     font-weight: 800;
-    color: var(--color-dark);
+    color: var(--color-secondary);
     margin-bottom: 1.5rem;
 }
 
 .hero-content p {
-    font-size: 1.1rem;
-    color: #555;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--color-secondary-dark);
     margin-bottom: 2rem;
     line-height: 1.8;
 }
 
 .btn-discover {
-    background-color: var(--color-dark);
+    background-color: var(--color-primary);
     color: white;
     padding: 12px 40px;
     border-radius: 50px;
     border: none;
-    font-weight: 600;
+    font-weight: bold;
     font-size: 1rem;
     transition: all 0.3s;
     text-decoration: none;
@@ -93,17 +92,17 @@ body {
 
 .btn-discover:hover {
     background-color: var(--color-accent1);
+    color: var(--color-primary);
     transform: translateY(-3px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
-
 .hero-image {
     text-align: center;
 }
 
 .hero-character {
-    max-width: 400px;
-    max-height: 600px;
+    max-width: 600px;
+    max-height: 800px;
     width: 100%;
     border-radius: 60px/60px;
     height: auto;
@@ -124,7 +123,7 @@ body {
 }
 
 .vision-section {
-    background-color: var(--color-primary);
+    background-color: var(--color-light);
     padding: 80px 0;
 }
 
@@ -152,7 +151,7 @@ body {
 }
 
 .vision-card {
-    background-color: var(--color-secondary);
+    background-color: var(--color-primary);
     border-radius: 20px;
     padding: 2.5rem;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
@@ -174,26 +173,26 @@ body {
 .vision-card h3 {
     font-size: 1.5rem;
     font-weight: 700;
-    color: var(--color-dark);
+    color: var(--color-secondary);
     margin-bottom: 1rem;
 }
 
 .vision-card p {
-    color: #666;
+    color: var(--color-secondary-dark);
     line-height: 1.7;
 }
 
 /* About Section */
 .about-section {
     padding: 80px 0;
-    background-color: white;
+    background-color: var(--color-light);
 }
 
 .about-title {
     font-size: 2.5rem;
     font-weight: 700;
     text-align: center;
-    color: var(--color-dark);
+    color: var(--color-secondary );
     margin-bottom: 4rem;
 }
 
@@ -202,23 +201,29 @@ body {
 }
 
 .about-content {
-    background-color: var(--color-accent1);
+    background-color: var(--color-primary);
     padding: 2.5rem;
     border-radius: 20px;
-    border: 3px solid var(--color-dark);
+    border: 3px solid var(--color-secondary);
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .about-content h3 {
     font-size: 2rem;
     font-weight: 700;
-    color: var(--color-dark);
+    color: var(--color-accent1);
     margin-bottom: 1.5rem;
 }
 
 .about-content p {
-    color: #555;
+    color: var(--color-secondary-dark);
     line-height: 1.8;
     font-size: 1.05rem;
+}
+
+.about-content:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
 }
 
 /* Features Carousel */
@@ -226,7 +231,7 @@ body {
 .slider-section {
     padding: 10px 0;
     overflow: hidden;
-    background-color: var(--color-accent2);
+    background-color: var(--color-light);
 }
 
 .s-container {
@@ -237,14 +242,14 @@ body {
 .feature-section-title {
     font-size: 2.5rem;
     font-weight: 700;
-    color: var(--color-dark);
+    color: var(--color-secondary);
     margin-bottom: 3rem;
     text-align: center;
 }
 
 .feature-section-subtitle {
     text-align: center;
-    color: var(--color-light-blue);
+    color: var(--color-secondary-dark);
     margin-bottom: 4rem;
     font-size: 1.1rem;
     font-weight: 500;
@@ -274,12 +279,12 @@ body {
     position: absolute;
     width: 380px;
     height: 380px;
-    background: white;
+    background: var(--color-primary);
     border-radius: 30px;
     border-style: solid;
-    border-color: var(--color-light-blue);
+    border-color: var(--color-accent1);
     border-width: 1%;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 10px 30px var(--color-accent1);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -295,7 +300,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, var(--color-light-blue) 0%, var(--color-light-blue) 10%);
+    background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-secondary) 10%);
     opacity: 0;
     transition: opacity 0.3s;
 }
@@ -313,13 +318,13 @@ body {
 .card-title {
     font-size: 2rem;
     font-weight: 700;
-    color: var(--maroon);
+    color: var(--color-accent1);
     margin-bottom: 1rem;
 }
 
 .card-description {
     font-size: 1.05rem;
-    color: #666;
+    color: var(--color-secondary-dark);
     line-height: 1.6;
     opacity: 0;
     transform: translateY(20px);
@@ -417,13 +422,13 @@ body {
     width: 12px;
     height: 12px;
     border-radius: 50%;
-    background: var(--color-lightdot);
+    background: var(--color-secondary-dark);
     cursor: pointer;
     transition: all 0.3s;
 }
 
 .dot.active {
-    background: var(--color-dot);
+    background: var(--color-secondary);
     width: 30px;
     border-radius: 6px;
 }
@@ -504,7 +509,7 @@ body {
 /* Technology Stack */
 .tech-section {
     padding: 80px 0;
-    background-color: white;
+    background-color: var(--color-light);
 }
 
 .tech-badges {
@@ -526,8 +531,10 @@ body {
 }
 
 .tech-badge:hover {
-    background-color: var(--color-dark);
+    background-color: var(--color-primary);
     color: white;
+    border-style: solid;
+    border-color: var(--color-accent1);
     transform: scale(1.05);
 }
 
@@ -541,13 +548,13 @@ body {
 
 /* Team Section */
 .team-section {
-    background-color: var(--color-light-blue);
+    background-color: var(--color-primary);
     padding: 80px 0;
 }
 
 .team-subtitle {
     text-align: center;
-    color: #d0d0d0;
+    color: var(--color-secondary-dark);
     margin-bottom: 3rem;
     font-style: italic;
 }
@@ -560,11 +567,11 @@ body {
 }
 
 .team-member {
-    background-color: var(--color-secondary);
+    background-color: var(--color-light);
     border-radius: 20px;
     padding: 2rem;
     text-align: center;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 5px 20px rgba(255, 255, 255, 0.08);
     transition: transform 0.3s;
     border: 3px solid var(--color-accent1);
 }
@@ -577,57 +584,50 @@ body {
     width: 150px;
     height: 150px;
     border-radius: 50%;
-    background-color: var(--color-accent1);
-    margin: 0 auto 1.5rem;
-    border: 4px solid var(--color-dark);
+    margin: 0 auto 2rem;
 }
 
 .team-photo img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 50%;
+    border-radius: 100%;
+    border: 4px solid var(--color-accent1); 
 }
 
 .team-member h4 {
     font-size: 1.3rem;
     font-weight: 700;
-    color: var(--color-dark);
+    color: var(--color-secondary);
     margin-bottom: 0.5rem;
 }
 
 .team-member p {
-    color: #666;
+    color: var(--color-secondary-dark);
     font-size: 0.95rem;
 }
 
 /* Contact Section */
 .contact-section {
     padding: 80px 0;
-    background-color: var(--color-secondary);
+    background-color: var(--color-light);
 }
 
 .contact-title {
     font-size: 2.5rem;
     font-weight: 700;
     text-align: center;
-    color: var(--color-dark);
+    color: var(--color-secondary);
     margin-bottom: 2rem;
 }
 
 .contact-subtitle {
     font-weight: 500;
     text-align: center;
-    color: var(--color-light-blue);
+    color: var(--color-secondary-dark);
     max-width: 1000px;
     margin: 0 auto 3rem;
     font-size: 1.1rem;
-}
-
-
-
-.contact-subtitle {
-    color: var(--color-light-blue);
 }
 
 .contact-cards {
@@ -638,13 +638,12 @@ body {
 }
 
 .contact-card {
-    background-color: var(--color-light-blue);
+    background-color: var(--color-primary);
     border-radius: 20px;
     padding: 2.5rem;
     text-align: center;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 5px 20px rgba(171, 171, 171, 0.1);
     transition: transform 0.3s;
-    border: 3px solid var(--color-dark);
 }
 
 .contact-card:hover {
@@ -667,12 +666,12 @@ body {
 }
 
 .contact-card p {
-    color: #e6e6e6;
+    color: var(--color-secondary-dark);
 }
 
 /* Footer */
 .footer {
-    background-color: var(--color-dark);
+    background-color: var(--color-primary);
     color: white;
     text-align: center;
     padding: 2rem 0;
@@ -718,19 +717,6 @@ body {
 
 /* added Animations */
 
-.about-content {
-    background-color: var(--color-accent1);
-    padding: 2.5rem;
-    border-radius: 20px;
-    border: 3px solid var(--color-dark);
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.about-content:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
-}
-
 
 .vision-icon {
     font-size: 3rem;
@@ -741,12 +727,12 @@ body {
 
 .vision-card:hover .vision-icon {
     transform: scale(1.08) rotate(3deg);
-    color: var(--color-dark);
+    color: var(--color-secondary);
 }
 
 .contact-card:hover .contact-icon {
     transform: scale(1.15);
-    color: var(--color-dark);
+    color: var(--color-accent1);
 }
 
 .team-photo {
@@ -780,7 +766,7 @@ body {
 
 .about-image {
     background-color: var(--color-accent2);
-    height: 400px;
+    height: 350px;
     border-radius: 20px;
     display: flex;
     align-items: center;
