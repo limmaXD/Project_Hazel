@@ -603,6 +603,36 @@ body {
 .team-member p {
     color: var(--color-secondary-dark);
     font-size: 0.95rem;
+    margin-bottom: 1rem;
+}
+
+.team-social {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.team-social a {
+    color: var(--color-accent1);
+    transition: transform 0.3s, color 0.3s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(15, 255, 199, 0.1);
+    text-decoration: none;
+}
+
+.team-social a:first-child {
+    background-color: rgba(15, 255, 199, 0.15);
+}
+
+.team-social a:hover {
+    transform: scale(1.2);
+    color: var(--color-secondary);
+    background-color: rgba(15, 255, 199, 0.3);
 }
 
 /* Contact Section */
