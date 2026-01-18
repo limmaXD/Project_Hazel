@@ -505,12 +505,18 @@ body {
     background-color: var(--color-black);
 }
 
-.tech-badges {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    justify-content: center;
+
+.tech-badges-slider {
+    position: relative;
+    overflow: hidden;
     margin-top: 2rem;
+}
+
+.tech-badges-track {
+    display: flex;
+    gap: 1.5rem;
+    width: max-content;
+    animation: badges-marquee 18s linear infinite;
 }
 
 .tech-badge {
@@ -528,6 +534,16 @@ body {
     color: white;
     border: solid var(--color-accent1);
     transform: scale(1.05);
+}
+
+@keyframes badges-marquee {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
 }
 
 .tech-models {
