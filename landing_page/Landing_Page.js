@@ -15,6 +15,8 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // Navbar background change on scroll
 window.addEventListener('scroll', function () {
     const navbar = document.querySelector('.navbar');
+    if (!navbar) return;
+
     if (window.scrollY > 50) {
         navbar.style.boxShadow = '0 4px 20px rgba(0,0,0,0.15)';
     } else {
@@ -49,20 +51,32 @@ document.querySelectorAll('.vision-card, .team-member, .contact-card, .about-ite
 // Card data
 const cardData = [
     {
-        title: "AI-Powered Focus Tracking",
-        description: "Stay in the zone. Hazel monitors your eye movement and gently alerts you with light and sound if you get distracted, keeping you on task."
+        title: "Focus & Monitoring",
+        description: "Drowsiness Alerts offer gentle cues when you are getting tired, Phone Police minimizes smartphone distractions, Posture Check supports healthier sitting habits, and Privacy Turn enables a secure mode for sensitive tasks."
     },
     {
-        title: "Smart Revision Sessions",
-        description: "Upload your study materials and let Hazel instantly generate practice questions, interactive Q&A sessions, and concise summaries to help you revise smarter."
+        title: "Environment & Bio-Hacks",
+        description: "Air Quality Alerts track your room air quality, Smart Aromatherapy boosts mood and focus through AI-driven scents, and Circadian Lighting adapts room lighting to your natural energy cycles."
+    },
+    {
+        title: "Learning & Tutoring",
+        description: "Snap & Quiz turns notes and images into interactive quizzes, Oral Exam Practice simulates oral tests for confidence and retention, and Smart Revision Sessions generate practice questions, summaries, and Q&A."
+    },
+    {
+        title: "Music & Entertainment",
+        description: "Gesture Music Control lets you control playlists with simple hand gestures, Music Visualizer creates RGB visuals synced to your tracks, and Scent DJ pairs aromas with music for an immersive experience."
+    },
+    {
+        title: "Games & Wellness",
+        description: "Scent Trivia adds multisensory knowledge challenges, Emotion Charades helps build emotional intelligence, Retro Screen Games create fun short breaks, and Guided Breathwork reduces stress with AI-led breathing sessions."
+    },
+    {
+        title: "App & Integration",
+        description: "Focus Heatmap visualizes productivity patterns, Voice Notes capture reminders and ideas, and Smart Reminders deliver context-aware alerts for tasks and deadlines."
     },
     {
         title: "Interactive Entertainment",
-        description: "Challenge your assistant to a 'Music Maze' or 'Guess the Word.' Co-create a unique story, with smart RGB LEDs providing instant feedback."
-    },
-    {
-        title: "Ambient Task Management",
-        description: "Set reminders for calls and assignments while Hazel's adaptive lighting creates the perfect mood, automatically syncing with the weather and time of day."
+        description: "Play Music Maze and Guess the Word, co-create stories, and use Adaptive Lighting & Mood so Hazel adjusts your environment to your activities and time of day."
     },
 ];
 
@@ -71,6 +85,7 @@ const cardsWrapper = document.getElementById('cardsWrapper');
 const dotsContainer = document.getElementById('dotsContainer');
 const prevBtn = document.getElementById('prevBtn');
 const nextBtn = document.getElementById('nextBtn');
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 // Initialize cards
 function initializeCards() {
@@ -149,8 +164,8 @@ function goToSlide(index) {
 }
 
 // Event listeners
-nextBtn.addEventListener('click', nextSlide);
-prevBtn.addEventListener('click', prevSlide);
+if (nextBtn) nextBtn.addEventListener('click', nextSlide);
+if (prevBtn) prevBtn.addEventListener('click', prevSlide);
 
 // Keyboard navigation
 document.addEventListener('keydown', (e) => {
@@ -169,21 +184,25 @@ function stopAutoplay() {
 }
 
 // Pause autoplay on hover
-cardsWrapper.addEventListener('mouseenter', stopAutoplay);
-cardsWrapper.addEventListener('mouseleave', startAutoplay);
+if (cardsWrapper) {
+    cardsWrapper.addEventListener('mouseenter', stopAutoplay);
+    cardsWrapper.addEventListener('mouseleave', startAutoplay);
+}
 
 // Touch/swipe support
 let touchStartX = 0;
 let touchEndX = 0;
 
-cardsWrapper.addEventListener('touchstart', (e) => {
-    touchStartX = e.changedTouches[0].screenX;
-});
+if (cardsWrapper) {
+    cardsWrapper.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
 
-cardsWrapper.addEventListener('touchend', (e) => {
-    touchEndX = e.changedTouches[0].screenX;
-    handleSwipe();
-});
+    cardsWrapper.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+    }, { passive: true });
+}
 
 function handleSwipe() {
     if (touchEndX < touchStartX - 50) nextSlide();
@@ -191,5 +210,18 @@ function handleSwipe() {
 }
 
 // Initialize
-initializeCards();
-startAutoplay();
+if (cardsWrapper && dotsContainer) {
+    initializeCards();
+
+    if (!prefersReducedMotion) {
+        startAutoplay();
+
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                stopAutoplay();
+            } else {
+                startAutoplay();
+            }
+        });
+    }
+}

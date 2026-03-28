@@ -1,7 +1,14 @@
 // Wait for OGL to load from CDN
 window.addEventListener('DOMContentLoaded', async () => {
     // Import OGL from CDN
-    const OGL = await import('https://cdn.skypack.dev/ogl');
+    let OGL;
+    try {
+        OGL = await import('https://cdn.skypack.dev/ogl');
+    } catch (error) {
+        console.error('Failed to load OGL for particle background.', error);
+        return;
+    }
+
     const { Renderer, Camera, Geometry, Program, Mesh } = OGL;
 
     // Configuration
@@ -89,6 +96,8 @@ window.addEventListener('DOMContentLoaded', async () => {
 
     // Initialize
     const container = document.getElementById('particles');
+    if (!container) return;
+
     const mouse = { x: 0, y: 0 };
 
     const renderer = new Renderer({ depth: false, alpha: true });
@@ -111,11 +120,11 @@ window.addEventListener('DOMContentLoaded', async () => {
 
     // Mouse handler
     if (config.moveParticlesOnHover) {
-        container.addEventListener('mousemove', e => {
+        container.addEventListener('pointermove', e => {
             const rect = container.getBoundingClientRect();
             mouse.x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
             mouse.y = -(((e.clientY - rect.top) / rect.height) * 2 - 1);
-        });
+        }, { passive: true });
     }
 
     // Create particle data
