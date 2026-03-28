@@ -1,13 +1,21 @@
 // Smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
+        const href = this.getAttribute('href');
+        if (!href || href === '#') return;
+
+        const target = document.querySelector(href);
         if (target) {
+            e.preventDefault();
             target.scrollIntoView({
                 behavior: 'smooth',
                 block: 'start'
             });
+
+            const collapseEl = document.getElementById('navbarNav');
+            if (collapseEl && collapseEl.classList.contains('show') && window.bootstrap?.Collapse) {
+                window.bootstrap.Collapse.getOrCreateInstance(collapseEl).hide();
+            }
         }
     });
 });
@@ -23,6 +31,39 @@ window.addEventListener('scroll', function () {
         navbar.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
     }
 });
+
+// Active nav link based on visible section
+const trackedSections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-link');
+
+const updateActiveNav = () => {
+    let activeId = '';
+    const offset = 130;
+
+    trackedSections.forEach((section) => {
+        const sectionTop = section.offsetTop - offset;
+        const sectionHeight = section.offsetHeight;
+
+        if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+            activeId = section.getAttribute('id') || '';
+        }
+    });
+
+    navLinks.forEach((link) => {
+        const href = link.getAttribute('href');
+        const isActive = href === `#${activeId}`;
+        link.classList.toggle('active', isActive);
+
+        if (isActive) {
+            link.setAttribute('aria-current', 'page');
+        } else {
+            link.removeAttribute('aria-current');
+        }
+    });
+};
+
+window.addEventListener('scroll', updateActiveNav);
+window.addEventListener('load', updateActiveNav);
 
 // Add fade-in animation on scroll
 const observerOptions = {

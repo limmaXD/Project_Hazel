@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project Hazel</title>
+    <meta name="description"
+        content="Project Hazel is an AI companion focused on calm, focus, learning, and meaningful daily support through mindful interactions.">
+    <meta name="theme-color" content="#141414">
     <script type="importmap">
     {
         "imports": {
@@ -20,14 +23,16 @@
 </head>
 
 <body>
+    <a class="skip-link" href="#home">Skip to main content</a>
 
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top" aria-label="Main navigation">
         <div class="container">
-            <a class="navbar-brand d-flex align-items-center" href="#">
+            <a class="navbar-brand d-flex align-items-center" href="#home" aria-label="Go to home section">
                 <img src="./pics/logo.png" alt="Project Hazel Logo" class="navbar-logo">
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation menu">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
@@ -63,9 +68,42 @@
                         <a href="#about" class="btn-discover">Discover More</a>
                     </div>
                     <div class="col-lg-6 hero-image">
-                        <img src="./pics/pic1.jpg" alt="Aura Character" class="hero-character">
+                        <img src="./pics/pic1.jpg" alt="Hazel companion character" class="hero-character"
+                            decoding="async" fetchpriority="high">
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Explore Section -->
+    <section class="explore-section">
+        <div class="container">
+            <h2 class="explore-title">Start Your Hazel Journey</h2>
+            <p class="explore-subtitle">Choose where you want to go next. Read stories and updates from our team,
+                or launch the live web app to experience Hazel in action.</p>
+
+            <div class="explore-grid">
+                <article class="explore-card">
+                    <div class="explore-card-icon">
+                        <i class="fas fa-newspaper"></i>
+                    </div>
+                    <h3>Hazel Blog</h3>
+                    <p>Follow the journey of how Hazel was imagined, designed, and built into a supportive companion and a
+                        web app.</p>
+                    <a href="https://blog.companionhazel.com/" class="explore-btn explore-btn-primary">Read the Blog</a>
+                </article>
+
+                <article class="explore-card">
+                    <div class="explore-card-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>Hazel Web App</h3>
+                    <p>Open the companion web app to access guided interactions, productivity tools, and personalized
+                        support from Hazel.</p>
+                    <a href="https://app.companionhazel.com/" class="explore-btn explore-btn-secondary"
+                        target="_blank" rel="noopener noreferrer">Launch the Web App</a>
+                </article>
             </div>
         </div>
     </section>
@@ -124,7 +162,8 @@
                 <div class="row align-items-center">
                     <div class="col-lg-6 mb-lg-0">
                         <div class="about-image">
-                            <img src="./pics/pic3.png" alt="What is Hazel">
+                            <img src="./pics/pic3.png" alt="Illustration of Hazel concept" loading="lazy"
+                                decoding="async">
                         </div>
                     </div>
                     <div class="col-lg-6">
@@ -142,7 +181,8 @@
                 <div class="row align-items-center">
                     <div class="col-lg-6 order-lg-2">
                         <div class="about-image-2">
-                            <img src="./pics/pic2.png" alt="How It Began">
+                            <img src="./pics/pic2.png" alt="Hazel in a learning environment" loading="lazy"
+                                decoding="async">
                         </div>
                     </div>
                     <div class="col-lg-6 order-lg-1">
@@ -242,7 +282,7 @@
             <div class="team-grid">
                 <div class="team-member">
                     <div class="team-photo">
-                        <img src="./pics/member1.png" alt="Team Member 01">
+                        <img src="./pics/member1.png" alt="Onitha Hettiarachchi" loading="lazy" decoding="async">
                     </div>
                     <h4>Onitha Hettiarachchi</h4>
                     <p>Team Lead | IOT | Full Stack | AI Developer
@@ -256,7 +296,7 @@
 
                 <div class="team-member">
                     <div class="team-photo">
-                        <img src="./pics/member2.jpg" alt="Team Member 02">
+                        <img src="./pics/member2.jpg" alt="Limuthu Karunasinghe" loading="lazy" decoding="async">
                     </div>
                     <h4>Limuthu Karunasinghe</h4>
                     <p>IOT | Full Stack | AI Developer</p>
@@ -269,7 +309,7 @@
 
                 <div class="team-member">
                     <div class="team-photo">
-                        <img src="./pics/member3.jpg" alt="Team Member 03">
+                        <img src="./pics/member3.jpg" alt="Maleesha Bandaranayake" loading="lazy" decoding="async">
                     </div>
                     <h4>Maleesha Bandaranayake</h4>
                     <p>Frontend Developer | AI Developer | UIUX Designer</p>
@@ -285,7 +325,7 @@
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="team-member">
                         <div class="team-photo">
-                            <img src="./pics/member4.jpg" alt="Team Member 04">
+                            <img src="./pics/member4.jpg" alt="Nethmi Himasha" loading="lazy" decoding="async">
                         </div>
                         <h4>Nethmi Himasha</h4>
                         <p>Frontend Developer | AI Developer</p>
@@ -300,7 +340,8 @@
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="team-member">
                         <div class="team-photo">
-                            <img src="./pics/member5.jpg" alt="Team Member 05">
+                            <img src="./pics/member5.jpg" alt="Sandevnee Periyapperuma" loading="lazy"
+                                decoding="async">
                         </div>
                         <h4>Sandevnee Periyapperuma</h4>
                         <p>Frontend Developer | AI Developer</p>
@@ -327,7 +368,8 @@
                         <i class="fas fa-envelope"></i>
                     </div>
                     <h4>Email</h4>
-                    <p>contact@projectHazel.com<br>support@projectHazel.com</p>
+                        <p><a href="mailto:contact@projecthazel.com">contact@projecthazel.com</a><br><a
+                            href="mailto:support@projecthazel.com">support@projecthazel.com</a></p>
                 </div>
 
                 <div class="contact-card">
@@ -345,13 +387,13 @@
                     <h4>Social</h4>
                     <p>
                         <a href="https://www.instagram.com/companion_hazel?igsh=anl1eHRhMDIxemJ4"
-                            style="color:   var(--color-accent1); margin: 0 10px;"><i
+                            class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Hazel Instagram"><i
                                 class="fab fa-instagram fa-lg"></i></a>
                         <a href="https://www.linkedin.com/in/companion-hazel"
-                            style="color:   var(--color-accent1); margin: 0 10px;"><i
+                            class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Hazel LinkedIn"><i
                                 class="fab fa-linkedin fa-lg"></i></a>
-                        <a href="#" style="color:   var(--color-accent1); margin: 0 10px;"><i
-                                class="fab fa-github fa-lg"></i></a>
+                        <a href="https://github.com/" class="social-link" target="_blank" rel="noopener noreferrer"
+                            aria-label="Hazel GitHub"><i class="fab fa-github fa-lg"></i></a>
                     </p>
                 </div>
             </div>
