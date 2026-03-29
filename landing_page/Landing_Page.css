@@ -555,7 +555,9 @@ section {
     display: flex;
     gap: 1.5rem;
     width: max-content;
-    animation: badges-marquee 18s linear infinite;
+    animation: badges-marquee 22s linear infinite;
+    will-change: transform;
+    transform: translate3d(0, 0, 0);
 }
 
 .tech-badge {
@@ -563,16 +565,19 @@ section {
     color: var(--color-dark);
     padding: 10px 25px;
     border-radius: 50px;
+    border: 2px solid transparent;
     font-weight: 600;
     font-size: 0.95rem;
-    transition: all 0.3s;
+    cursor: default;
+    user-select: none;
+    transition: background-color 0.35s ease, color 0.35s ease, border-color 0.35s ease, transform 0.35s ease;
 }
 
 .tech-badge:hover {
     background-color: var(--color-primary);
     color: white;
-    border: solid var(--color-accent1);
-    transform: scale(1.05);
+    border-color: var(--color-accent1);
+    transform: translateY(-1px);
 }
 
 @keyframes badges-marquee {
